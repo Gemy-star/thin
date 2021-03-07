@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div id="logo">
+            <h1><a href="{% url 'home_page' %}"><span>e</span>Startup</a></h1>
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="{% url 'home_page' %}">Home</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'features' %}">Features</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
+                {% if request.user.first_name %}
+                    <li><a class="nav-link scrollto" href="{% url 'logout' %}"><i style="font-size:large;" class="fa fa-power-off" aria-hidden="true"></i></a></li>
+                    {% else %}
+                                        <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
+                                                            <li><a class="nav-link scrollto" href="{% url 'register' %}">Register</a></li>
+
+                {% endif %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header>
