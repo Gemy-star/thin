@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block title %} لوحة التحكم {% endblock title %}
+
+{% block body %}
+
+    <main id="main">
+    <section id="get-started" class="padd-section text-center">
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title text-center">
+
+                <h2 style="color:#85775f">لوحة التحكم </h2>
+                <p class="separator"></p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                   <a  href="{% url 'work_flow' %}">
+                    <div class="feature-block">
+
+                        <img src="{% static 'images/hp_cleint.png' %}" alt="img" style="width: 63%; height:9%">
+
+                        <h4 style="color:#85775f">متابعة سير العمل</h4>
+
+                    </div>
+                       </a>
+                </div>
+
+                <div class="col-md-6 col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+                  <a href="{% url 'add_device' %}">
+                    <div class="feature-block">
+
+
+                        <img src="{% static 'images/dell_client.png' %}" alt="img" style="width: 63%; height:9%">
+
+                       <h4 style="color:#85775f"> إضافة جهة</h4>
+
+                    </div>
+                      </a>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+    </main>
+
+{% endblock body %}

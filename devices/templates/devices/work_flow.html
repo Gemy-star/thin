@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block title %}متابعة سير العمل  {% endblock title %}
+
+{% block body %}
+
+    <main id="main">
+    <section id="get-started" class="padd-section text-center">
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title text-center">
+
+                <h2 style="color:#85775f">لوحة التحكم </h2>
+                <p class="separator"></p>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                   <a  href="{% url 'search_clients' %}">
+                    <div class="feature-block">
+
+                        <img src="{% static 'images/thin_client.png' %}" alt="img" style="width: 63%; height:27%">
+
+                        <h4 style="color:#85775f"> الهيئات</h4>
+
+                    </div>
+                       </a>
+                </div>
+
+                <div class="col-md-6 col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+                  <a href="{% url 'add_device' %}">
+                    <div class="feature-block">
+
+
+                        <img src="{% static 'images/reports.png' %}" alt="img" style="width: 63%; height:27%">
+
+                       <h4 style="color:#85775f">  التقارير </h4>
+
+                    </div>
+                      </a>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+    </main>
+
+{% endblock body %}

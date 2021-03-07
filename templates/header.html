@@ -10,15 +10,15 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="{% url 'home_page' %}">Home</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'features' %}">Features</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
+                <li><a class="nav-link scrollto active" href="{% url 'home_page' %}">الرئيسية</a></li>
+{#                <li><a class="nav-link scrollto" href="{% url 'about' %}">عن المركز</a></li>#}
+{#                <li><a class="nav-link scrollto" href="{% url 'features' %}">الأهداف</a></li>#}
+                <li><a class="nav-link scrollto" href="{% url 'contact' %}">إتصل بنا</a></li>
                 {% if request.user.first_name %}
                     <li><a class="nav-link scrollto" href="{% url 'logout' %}"><i style="font-size:large;" class="fa fa-power-off" aria-hidden="true"></i></a></li>
                     {% else %}
-                                        <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
-                                                            <li><a class="nav-link scrollto" href="{% url 'register' %}">Register</a></li>
+                                        <li><a class="nav-link scrollto" href="{% url 'login' %}">تسجيل الدخول</a></li>
+                                                            <li><a class="nav-link scrollto" href="{% url 'register' %}">إنشاء حساب</a></li>
 
                 {% endif %}
             </ul>

@@ -19,15 +19,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  color: #000;
+  color: #85775f;
   font-weight: 600;
 }
 
 h4 {
-  color: #000;
+  color: #85775f;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-transform: uppercase;
   line-height: 2;
 }
@@ -39,24 +39,24 @@ h5 {
 }
 
 a {
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-decoration: none;
   color: #85775F;
 }
 
 a:hover {
-  color: #92d283;
+  color: #85775f;
 }
 
 ul {
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 li {
   color: #626262;
   font-size: 13px;
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   line-height: 30px;
   text-transform: capitalize;
 }
@@ -65,13 +65,13 @@ p {
   color: #505050;
   font-size: 14px;
   font-weight: 300;
-  letter-spacing: 0.5px;
+  letter-spacing: 0;
   line-height: 2;
   margin-bottom: 20px;
 }
 
 span {
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .container-full {
@@ -91,7 +91,7 @@ span {
 }
 
 .btn-default:hover {
-  color: #fff;
+  color: #85775f;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
@@ -125,7 +125,7 @@ span {
 }
 
 .back-to-top:hover {
-  background: #8bd07b;
+  background: #85775f;
   color: #fff;
 }
 
@@ -148,7 +148,7 @@ span {
   color: #505050;
   font-size: 28px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   margin: 0;
 }
 
@@ -200,7 +200,7 @@ span {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Roboto", sans-serif;
+font-family: 'Almarai', sans-serif;
   font-size: 15px;
   color: #222;
   white-space: nowrap;
@@ -388,8 +388,6 @@ span {
 #hero {
   width: 100%;
   height: calc(100vh - 40px);
-  background: url(../img/hero-bg.png) center bottom no-repeat;
-  background-size: 100%;
   position: relative;
   margin-top: 40px;
 }
@@ -418,7 +416,7 @@ span {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  font-family: "Philosopher", sans-serif;
+font-family: 'Almarai', sans-serif;
   color: #85775F;
 }
 
@@ -433,7 +431,7 @@ span {
   color: #777;
   margin-bottom: 30px;
   font-size: 20px;
-  font-family: "Roboto", sans-serif;
+font-family: 'Almarai', sans-serif;
   font-weight: 300;
 }
 
@@ -451,24 +449,24 @@ span {
 }
 
 #hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
+font-family: 'Almarai', sans-serif;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 13px;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   display: inline-block;
   padding: 11px 36px;
   border-radius: 50px;
   transition: 0.5s;
   margin-bottom: 30px;
-  border: 2px solid #85775F;
+  border: 2px solid #e1c26c;
   background: #fff;
   color: #85775F;
   text-decoration: none;
 }
 
 #hero .btn-get-started:hover {
-  background: #85775F;
+  background: #e1c26c;
   color: #fff;
 }
 
@@ -489,6 +487,116 @@ span {
 }
 
 #hero .btns a:hover {
+  color: #85775F;
+}
+
+
+
+#home {
+  width: 100%;
+  height: calc(100vh - 40px);
+   background: url(../images/hero-bg.png) center bottom no-repeat;
+  background-size: 60%;
+  position: relative;
+  margin-top: 40px;
+}
+
+@media (min-width: 1025px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+#home .hero-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#home h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+font-family: 'Almarai', sans-serif;
+  color: #85775F;
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+#home h2 {
+  color: #777;
+  margin-bottom: 30px;
+  font-size: 20px;
+font-family: 'Almarai', sans-serif;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+
+#home img {
+  max-width: 95%;
+  margin-bottom: 30px;
+}
+
+#home .btn-get-started {
+font-family: 'Almarai', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0;
+  display: inline-block;
+  padding: 11px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-bottom: 66px;
+  border: 2px solid #e1c26c;
+  background: #fff;
+  color: #85775F;
+  text-decoration: none;
+}
+
+#home .btn-get-started:hover {
+  background: #e1c26c;
+  color: #fff;
+}
+
+#home .btns a {
+  color: #555;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 4px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+@media (max-width: 575px) {
+  #home .btns a {
+    margin: 4px 8px;
+  }
+}
+
+#home .btns a:hover {
   color: #85775F;
 }
 
@@ -522,10 +630,10 @@ section {
 }
 
 .section-title h2 {
-  font-family: "Roboto", sans-serif;
+font-family: 'Almarai', sans-serif;
   font-size: 45px;
   font-weight: 100;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   margin-bottom: 20px;
   text-transform: capitalize;
 }
@@ -536,7 +644,7 @@ section {
 
 .separator {
   color: #626262;
-  font-family: "Roboto", sans-serif;
+font-family: 'Almarai', sans-serif;
   font-size: 15px;
   font-weight: 300;
   margin-bottom: 30px;
@@ -671,10 +779,10 @@ section {
 
 #about-us .about-content h2 {
   color: #252525;
-  font-family: "roboto";
+font-family: 'Almarai', sans-serif;
   font-size: 39px;
   font-weight: 100;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   margin-bottom: 20px;
   text-transform: capitalize;
 }
@@ -925,7 +1033,7 @@ section {
   display: inline-block;
   font-size: 14px;
   font-weight: 300;
-  letter-spacing: 0.5px;
+  letter-spacing: 0;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -954,10 +1062,10 @@ section {
 }
 
 #testimonials .top-top > h2 {
-  font-family: "Roboto" sans-serif;
+font-family: 'Almarai', sans-serif;
   font-size: 45px;
   font-weight: 100;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   margin-bottom: 20px;
   text-transform: capitalize;
 }
@@ -1136,7 +1244,7 @@ section {
 /* Newsletter Section
 --------------------------------*/
 #newsletter {
-  background: rgba(0, 0, 0, 0) url(../img/newsletter-bg.jpg) no-repeat center top fixed;
+  background: rgba(0, 0, 0, 0) url(../images/newsletter-bg.jpg) no-repeat center top fixed;
   background-size: cover;
 }
 
@@ -1281,8 +1389,8 @@ section {
   padding: 6px 0 8px 0;
   border-radius: 50%;
   text-align: center;
-  width: 36px;
-  height: 36px;
+width: 29px;
+    height: 29px;
   transition: 0.3s;
 }
 
@@ -1315,7 +1423,7 @@ section {
 #contact .php-email-form .sent-message {
   display: none;
   color: #fff;
-  background: #18d26e;
+  background: #85775F;
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -1335,7 +1443,7 @@ section {
   width: 24px;
   height: 24px;
   margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
+  border: 3px solid #85775F;
   border-top-color: #eee;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
@@ -1360,6 +1468,7 @@ section {
 }
 
 #contact .php-email-form button[type="submit"] {
+      margin-block: 1.8rem;
   background: #85775F;
   border: 0;
   padding: 10px 24px;
@@ -1368,7 +1477,7 @@ section {
 }
 
 #contact .php-email-form button[type="submit"]:hover {
-  background: #92d283;
+  background: #85775F;
 }
 
 @-webkit-keyframes animate-loading {
@@ -1401,11 +1510,11 @@ section {
   color: #fff;
   display: inline-block;
   float: none;
-  font-family: "Philosopher", sans-serif;
+font-family: 'Almarai', sans-serif;
   font-size: 24px;
   font-weight: 500;
   height: 100%;
-  letter-spacing: 0.2em;
+  letter-spacing: 0;
   padding-left: 0;
   padding-top: 0;
 }
@@ -1413,7 +1522,7 @@ section {
 .footer .footer-logo p {
   color: #fff;
   font-size: 12px;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .footer .list-menu > h4 {
@@ -1439,7 +1548,7 @@ section {
 .footer .copyrights p, .footer .copyrights .credits {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+font-family: 'Almarai', sans-serif;
   font-weight: normal;
   font-size: 14px;
   letter-spacing: 0;

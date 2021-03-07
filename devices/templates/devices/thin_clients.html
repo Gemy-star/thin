@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block title %}لوحة التحكم  {% endblock title %}
+
+{% block body %}
+
+    <main id="main">
+        <section id="get-started" class="padd-section text-center" style="height:auto;">
+
+            <div class="container" data-aos="fade-up">
+                <div class="section-title text-center">
+
+                    <h2 style="color:#85775f">{{ thin.name }} </h2>
+                    <p class="separator"></p>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row" id="get-started" style="height:auto;">
+
+                    <div class="col-md-9 col-lg-9" style="margin: 0 auto;" data-aos="zoom-in" data-aos-delay="100">
+
+                        <div class="feature-block">
+                            <img src="{% static 'images/dell_client.png' %}" alt="img" style="width:32%; height:23%;">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+
+                                    <h4 style="color:#85775f">EPG</h4>
+
+                                    <p style="color:#85775f"> {{ thin.epg }}</p>
+                                    <h4 style="color:#85775f">CDB</h4>
+
+                                    <p style="color:#85775f"> {{ thin.cdb }}</p>
+
+                                    <h4 style="color:#85775f">DataBase Zone</h4>
+                                    <p style="color:#85775f"> {{ thin.database_zone }}</p>
+                                    <h4 style="color:#85775f">Database Zone</h4>
+                                    <p style="color:#85775f"> {{ thin.database_name }}</p>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <h4 style="color:#85775f"> الأسم المختصر</h4>
+                                    <p style="color:#85775f"> {{ thin.short_name }}</p>
+                                    <h4 style="color:#85775f">التصنيف</h4>
+                                    <p style="color:#85775f"> {{ thin.category }}</p>
+                                    <h4 style="color:#85775f">العدد الاجمالى</h4>
+                                    <p style="color:#85775f">{{ thin.total_devices }}</p>
+                                    <h4 style="color:#85775f">العدد المنتهى</h4>
+                                    <p style="color:#85775f">{{ thin.devices_done }}</p>
+                                    <h4 style="color:#85775f">العدد المتبقى</h4>
+                                    <p style="color:#85775f">{{ thin.remain_devices }}</p>
+                                    {% if thin.status ==  1 %}
+                                        <h4 style="color:#85775f">مخزن</h4>
+                                    {% elif thin.status == 2 %}
+                                        <h4 style="color:#85775f">جارى العمل</h4>
+                                    {% else %}
+                                        <h4 style="color:#85775f">منتهى</h4>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <hr/>
+                                                    <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                            <form method="post" role="form" class="php-email-form" >
+                                <h4 style="color:#85775f"> العمل اليومى    </h4>
+                                {% csrf_token %}
+
+                                <div class="form-group mt-3">
+                                    <input type="number" class="form-control" name="devices_done" id="devices_done"
+                                           placeholder="عدد الأجهزه المنتهية اليوم">
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <select class="form-control" id="status" >
+                                        <option value="" disabled selected>الحالة</option>
+                                        <option value="1">مخزن</option>
+                                        <option value="2">جارى العمل</option>
+                                        <option value="3">إنتهى العمل</option>
+                                    </select>
+                                </div>
+                                <div class="text-center">
+                                     <button style="background-color:#a19684" class="btn btn--success" type="submit">تعديل</button>
+                                </div>
+                            </form>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+{% endblock body %}

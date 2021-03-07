@@ -1,0 +1,90 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block title %} الهيئات  {% endblock title %}
+
+{% block body %}
+
+    <main id="main">
+        <section id="get-started" class="padd-section text-center" style="height:auto;">
+
+            <div class="container" data-aos="fade-up">
+                <div class="section-title text-center">
+
+                    <h2 style="color:#85775f">لوحة التحكم </h2>
+                    <p class="separator"></p>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="form">
+                            <form class="php-email-form">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" id="id_name"
+                                           placeholder="إسم الوحدة">
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <select name="status" id="id_status" class="form-control">
+                                        <option selected disabled>الحالة</option>
+                                        <option value="1">مخزن</option>
+                                        <option value="2">جارى العمل</option>
+                                        <option value="3"> إنتهى العمل</option>
+                                    </select>
+                                </div>
+                                <div style="margin-block:0.7rem" class="text-center">
+                                    <button style="background-color:#a19684" class="btn btn--success" type="submit">
+                                        بحث
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-9 col-lg-9" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="container-fluid">
+                            <div class="row" id="get-started" style="display:flex; flex-direction: row;">
+                                {% for client in clients %}
+                                    <div class="col-md-4 col-lg-4 p-0">
+                                        <a href="{% url 'thin_uint' client.pk %}">
+
+                                            <div class="feature-block">
+
+                                                <img src="{% static 'images/hp_cleint.png' %}" alt="img"
+                                                     style="width:auto; height:110px;">
+
+                                                <h4 style="color:#85775f">  {{ client.name }} </h4>
+                                                <hr/>
+
+                                                <h4 style="color:#85775f"> العدد المتبقى </h4>
+                                                <p>{{ client.remain_devices }}</p>
+
+                                            </div>
+                                        </a>
+
+                                    </div>
+
+
+                                {% endfor %}
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+{% endblock body %}

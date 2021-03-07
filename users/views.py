@@ -13,7 +13,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home_page')
+            return redirect('home_dash')
         else:
             messages.info(request, 'Username OR password is incorrect')
 
