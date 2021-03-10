@@ -9,6 +9,10 @@ def contact_page(request):
     return render(request, 'main/contact.html')
 
 
+def report_page(request):
+    return render(request, 'main/reports.html')
+
+
 def about_page(request):
     return render(request, 'main/about.html')
 

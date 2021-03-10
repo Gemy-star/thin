@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
+from thinclients.utils import render_to_pdf
+from django.template.loader import get_template
+from datetime import datetime
+from users.models import User
 from . import models
 from .filters import ThinClientFilter
+from django.views.generic import View
+from django.http import HttpResponse
 
 
 def home_dash(request):
@@ -52,3 +58,57 @@ def thin_uint(request, pk):
         thin.status = status
         return redirect('search_clients')
     return render(request, 'devices/thin_clients.html', context=context)
+
+
+class ClientsAllReport(View):
+    def get(self, request, *args, **kwargs):
+        template = get_template('allclients_reports.html')
+        units = models.ThinDevicesUnits.objects.filter(status=1)
+        user_obj = User.objects.get(pk=request.user.pk)
+        context = {
+            "company": "مركز النظم و الدعم المتكامل",
+            "user": user_obj,
+            "devices": units,
+            "topic": "تقرير جرد المستودع  ",
+            "today": datetime.today().strftime('%Y-%m-%d'),
+        }
+        html = template.render(context)
+        pdf = render_to_pdf('allclients_reports.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Invoice_%s.pdf" % ("12341231")
+            content = "inline; filename='%s'" % (filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" % (filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
+
+
+class ClientsTodayReport(View):
+    def get(self, request, *args, **kwargs):
+        template = get_template('thinclients_reports.html')
+        units = models.ThinDevicesUnits.objects.filter(status=2)
+        user_obj = User.objects.get(pk=request.user.pk)
+        context = {
+            "company": "مركز النظم و الدعم المتكامل",
+            "user": user_obj,
+            "devices": units,
+            "topic": "تفاصيل العمل اليومى  ",
+            "today": datetime.today().strftime('%Y-%m-%d'),
+        }
+        html = template.render(context)
+        pdf = render_to_pdf('thinclients_reports.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Invoice_%s.pdf" % ("12341231")
+            content = "inline; filename='%s'" % (filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" % (filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
+
+
