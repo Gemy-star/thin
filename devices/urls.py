@@ -9,5 +9,6 @@ urlpatterns = [
     path('search/clients/<int:pk>', views.thin_uint, name='thin_uint'),
     path('reports/today', views.ClientsTodayReport.as_view(), name='report-today'),
     path('reports/store', views.ClientsAllReport.as_view(), name='report-store'),
+    path('reports/unit', views.report, name='report-sara'),
 
 ]

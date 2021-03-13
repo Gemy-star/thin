@@ -7,6 +7,7 @@ from . import models
 from .filters import ThinClientFilter
 from django.views.generic import View
 from django.http import HttpResponse
+from django.core import serializers
 
 
 def home_dash(request):
@@ -112,3 +113,30 @@ class ClientsTodayReport(View):
         return HttpResponse("Not found")
 
 
+def report(request):
+    if request.method == "POST":
+        status = request.POST.get('status')
+        name = request.POST.get('name')
+        template = get_template('uint_reports.html')
+        units = models.ThinDevicesUnits.objects.filter(name__contains=name, status=int(status))
+        user_obj = User.objects.get(pk=request.user.pk)
+        context = {
+            "company": "مركز النظم و الدعم المتكامل",
+            "user": user_obj,
+            "devices": units,
+            "topic": "تفاصيل العمل اليومى  ",
+            "today": datetime.today().strftime('%Y-%m-%d'),
+        }
+        html = template.render(context)
+        pdf = render_to_pdf('uint_reports.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "Invoice_%s.pdf" % ("12341231")
+            content = "inline; filename='%s'" % (filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" % (filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
+    return render(request, 'devices/thinclients.html')
