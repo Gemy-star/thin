@@ -8,6 +8,7 @@ from .filters import ThinClientFilter
 from django.views.generic import View
 from django.http import HttpResponse
 from django.core import serializers
+from django.http import JsonResponse
 
 
 def home_dash(request):
@@ -140,3 +141,73 @@ def report(request):
             return response
         return HttpResponse("Not found")
     return render(request, 'devices/thinclients.html')
+
+
+def sara_grid(request):
+    qs = models.ThinDevicesUnits.objects.all()
+    clients_filter = ThinClientFilter(request.GET, queryset=qs)
+    thins = clients_filter.qs
+    return render(request, 'devices/device.html', context={"data": thins})
+
+
+def delete_thin(request):
+    if request.method == "POST" and request.is_ajax:
+        id = request.POST.get("id")
+        thin = models.ThinDevicesUnits.objects.get(pk=id)
+        thin.delete()
+        return JsonResponse({"data": 1})
+
+
+def get_thin_byId(request):
+    if request.method == 'POST' and request.is_ajax:
+        id = request.POST.get('id')
+        thin = models.ThinDevicesUnits.objects.filter(pk=id)
+        qs_json = serializers.serialize('json', list(thin))
+        return JsonResponse({"data": qs_json})
+
+
+def update_thin(request):
+    if request.method == "POST" and request.is_ajax:
+        update_id = request.POST.get('update_id')
+        name = request.POST.get('name')
+        status = request.POST.get('status')
+        cdb = request.POST.get('cdb')
+        epg = request.POST.get('epg')
+        short_name = request.POST.get('short_name')
+        database_zone = request.POST.get('database_zone')
+        database_name = request.POST.get('database_name')
+        devices_done = request.POST.get('devices_done')
+        total_devices = request.POST.get('total_devices')
+        thin = models.ThinDevicesUnits.objects.get(pk=update_id)
+        thin.name = name
+        thin.status = status
+        thin.cdb = cdb
+        thin.epg = epg
+        thin.short_name = short_name
+        thin.database_name = database_name
+        thin.database_zone = database_zone
+        thin.devices_done = devices_done
+        thin.total_devices = total_devices
+        return JsonResponse({"data": 1})
+
+
+def create_thin(request):
+    if request.method == "POST" and request.is_ajax:
+        name = request.POST.get('name')
+        status = request.POST.get('status')
+        cdb = request.POST.get('cdb')
+        epg = request.POST.get('epg')
+        short_name = request.POST.get('short_name')
+        database_zone = request.POST.get('database_zone')
+        database_name = request.POST.get('database_name')
+        devices_done = request.POST.get('devices_done')
+        total_devices = request.POST.get('total_devices')
+        thin = models.ThinDevicesUnits(name=name, status=int(status), cdb=cdb, epg=epg, short_name=short_name,
+                                       database_name=database_name
+                                       , database_zone=database_zone, devices_done=devices_done,
+                                       total_devices=total_devices)
+        thin.save()
+        if thin.pk:
+            return JsonResponse({"data": 1})
+        else:
+            return JsonResponse({"data": -1})
