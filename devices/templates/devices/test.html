@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block title %}Thin Client{% endblock title %}
+
+{% block body %}
+
+<!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg" style="height: 88.4vh;">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+             <br><br>
+                <h3><strong>لوحة التحكم</strong></h3>
+                <pre>
+
+                </pre>
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>01</span>متابعة سير العمل<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                  <p> <a class="getstarted scrollto" href="{% url 'sara-grid' %}">البحث بالجهة</a> </p>
+
+                  <a class="getstarted scrollto" href="{% url 'maingrid' %}"> Xcel Sheet</a>
+                  <a class="getstarted scrollto" href="{% url 'sara-grid' %}">Tenant/</a>
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>02</span> التقارير <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                  <br><a class="getstarted scrollto" href="{% url 'main_report' %}">تقرير رئيسي</a>
+                  <a class="getstarted scrollto" href="{% url 'reportdatemain_report' %}">تقرير العمل اليومي</a>
+                  </div>
+                </li>
+
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("../../../static/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Why Us Section -->
+{% endblock body %}

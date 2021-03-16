@@ -1,31 +1,24 @@
 {% extends 'main.html' %}
 {% load static %}
 
-{% block title %} إضافة جهة {% endblock title %}
+{% block title %}Thin Client{% endblock title %}
 {% block body %}
-
     <main id="main">
-        <section id="contact" class="padd-section">
+        <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+          <h2>تسجيل الدخول </h2>
+                      </div>
 
-            <div class="container" data-aos="fade-up">
-                <div class="section-title text-center">
-                    <h2>إضافة</h2>
-                </div>
-
-                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="col-lg-3 col-md-4">
-
-                        <div class="info">
+<div class="breadcrumbs" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-3 col-md-4">
+   <img style="width:45%;" src="{% static 'img/login.png' %}" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+                <div class="info">
                        <img src="{% static 'images/hp_cleint.png' %}" style="width:100%; height:auto;"/>
                         </div>
-
-
-                    </div>
-
-                    <div class="col-lg-5 col-md-8">
-                        <div class="form">
-                            <form method="post" role="form" class="php-email-form" >
+                </div>
+    <div class="row">
+        <div class="form" style="display:flex; margin: 0 auto;">
+                            <form method="post" style="display:flex; flex-direction: row" role="form" class="php-email-form" >
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" id="name"
@@ -62,9 +55,9 @@
 
                                 <div class="form-group mt-3">
                                     <select class="form-control" id="status">
-                                        <option value="1">مخزن</option>
-                                        <option value="2">جارى العمل</option>
-                                        <option value="3">إنتهى العمل</option>
+                                        <option value="مخزن">مخزن</option>
+                                        <option value="جارى العمل">جارى العمل</option>
+                                        <option value="إنتهى العمل">إنتهى العمل</option>
                                     </select>
                                 </div>
                                 <div class="text-center">
@@ -72,11 +65,12 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
+
+    </div>
+
             </div>
-        </section>
-        <
+        </div>
+    </section>
     </main>
 {% endblock body %}
 

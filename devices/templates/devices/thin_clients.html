@@ -51,9 +51,9 @@
                                     <p style="color:#85775f">{{ thin.devices_done }}</p>
                                     <h4 style="color:#85775f">العدد المتبقى</h4>
                                     <p style="color:#85775f">{{ thin.remain_devices }}</p>
-                                    {% if thin.status ==  1 %}
+                                    {% if thin.status ==  مخزن %}
                                         <h4 style="color:#85775f">مخزن</h4>
-                                    {% elif thin.status == 2 %}
+                                    {% elif thin.status == جاري العمل %}
                                         <h4 style="color:#85775f">جارى العمل</h4>
                                     {% else %}
                                         <h4 style="color:#85775f">منتهى</h4>
@@ -75,9 +75,9 @@
                                 <div class="form-group mt-3">
                                     <select class="form-control" id="status" >
                                         <option value="" disabled selected>الحالة</option>
-                                        <option value="1">مخزن</option>
-                                        <option value="2">جارى العمل</option>
-                                        <option value="3">إنتهى العمل</option>
+                                        <option value="مخزن">مخزن</option>
+                                        <option value="جارى العمل">جارى العمل</option>
+                                        <option value="إنتهى العمل">إنتهى العمل</option>
                                     </select>
                                 </div>
                                 <div class="text-center">
